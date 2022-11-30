@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Import CSV</h1>
+
+<%= form_tag import_model_path, multipart: true do %>
+  <label>Tables:</label>
+  <%= select_tag 'table', options_for_select(@tables), include_blank: 'Select..' %><br><br>
+  <%= submit_tag 'Choose' %>
+<% end %>
+

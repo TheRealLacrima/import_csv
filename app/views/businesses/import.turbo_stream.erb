@@ -1,0 +1,3 @@
+<%= turbo_stream.replace :load_headers do %>
+  <%= render partial: 'headers', locals: { headers: @headers } %>
+<% end %>

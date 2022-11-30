@@ -1,0 +1,27 @@
+<%= turbo_frame_tag :load_headers do %>
+  <% unless headers.blank? %>
+    <br><br>
+    <small>Verify/Assign columns before clicking import below</small>
+    <table>
+      <thead>
+        <th style='text-align: left'>CSV Header</th>
+        <th></th>
+        <th>Column Match</th>
+      </thead>
+      <tbody>
+        <% headers.each do |header| %>
+          <tr>
+            <td><%= header %></td>
+            <td>=</td>
+            <td>
+              <%= select_tag "headers[#{header.downcase}]", options_for_select(get_columns_as_option(controller_name), header.downcase), 
+                                              include_blank: '[Not Assigned]' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= submit_tag 'Import' %>
+  <% end %>
+<% end %>

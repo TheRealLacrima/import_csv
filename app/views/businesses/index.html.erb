@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Import CSV</h1>
+
+<%= form_tag import_businesses_path, multipart: true, remote: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag 'Process' %>
+  <%= turbo_frame_tag :load_headers do %>
+    <%= render 'headers', headers: [] %>
+  <% end %>
+<% end %>
+
